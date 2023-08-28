@@ -6,7 +6,7 @@ dotenv.config();
 const { JWT_SECRET } = process.env;
 
 function createToken(payload: Record<string, any>) {
-  return jwt.sign(payload, JWT_SECRET as string, { expiresIn: "1d" });
+  return jwt.sign(payload, JWT_SECRET as string, { expiresIn: "10d" });
 }
 
 function parseToken(token: string) {

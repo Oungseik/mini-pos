@@ -66,14 +66,14 @@ Content-Type: application/json
 ### create product without title (expected error)
 POST http://localhost:3000/api/products
 Content-Type: application/json
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU
 
 {
-  "description": "OPPO F19 is officially announced on April 2021.",
-  "price": 280,
-  "discountPercentage": 17.91,
-  "rating": 4.3,
-  "stock": 123,
-  "brand": "OPPO",
-  "category": "smartphones",
-  "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+    "title": "custom product",
+    "description": "just for test",
+    "price": 999,
+    "stock": 1,
+    "brand": "KLink",
+    "category": "mockproduct",
+    "thumbnail": ""
 }

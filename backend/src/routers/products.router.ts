@@ -27,7 +27,7 @@ router.get("/:id", async (request, response) => {
 router.post("/", async (request, response) => {
   try {
     const product = await createProduct(request.body);
-    response.status(204).json(product);
+    response.status(201).json(product);
   } catch (err) {
     response.status(400).json({
       msg: "some property of the product is missing",

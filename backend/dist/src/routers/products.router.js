@@ -33,7 +33,7 @@ router.get("/:id", (request, response) => __awaiter(void 0, void 0, void 0, func
 router.post("/", (request, response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const product = yield (0, products_model_1.createProduct)(request.body);
-        response.status(204).json(product);
+        response.status(201).json(product);
     }
     catch (err) {
         response.status(400).json({
