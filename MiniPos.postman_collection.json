@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "09e7206c-1fb5-479f-8458-6aab463203bc",
+		"name": "MiniPos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27184210"
+	},
+	"item": [
+		{
+			"name": "Signin to get JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jhon@doe.com\",\n    \"password\": 1234\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get products without query parameters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get products with pagination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products?take=20&skip=45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "take",
+							"value": "20"
+						},
+						{
+							"key": "skip",
+							"value": "45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products?category=smartphones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "smartphones"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter product by name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products?search=samsung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "samsung"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter by both name and category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products?search=samsung&category=laptops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "samsung"
+						},
+						{
+							"key": "category",
+							"value": "laptops"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoxMjM0LCJpYXQiOjE2OTMyMDMwNjksImV4cCI6MTY5NDA2NzA2OX0.wbJGRJfUCWSGF2dL4uM0FyEiEd0frZVgMfpMHFgbgaU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"custom product\",\n    \"description\": \"just for test\",\n    \"price\": 999,\n    \"stock\": 1,\n    \"brand\": \"KLink\",\n    \"category\": \"mockproduct\",\n    \"thumbnail\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
