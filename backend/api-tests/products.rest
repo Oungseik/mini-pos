@@ -1,0 +1,79 @@
+#------------------------------ 
+# GET Requests
+#------------------------------ 
+GET http://localhost:3000/api/products
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+###
+GET http://localhost:3000/api/products?take=10&skip=0
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+###
+GET http://localhost:3000/api/products?search=iphone
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+###
+GET http://localhost:3000/api/products?search=samsung&category=laptop
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+###
+GET http://localhost:3000/api/products?category=laptops
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+
+###
+GET http://localhost:3000/api/products/1
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+
+### Not Found
+GET http://localhost:3000/api/products/9999
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impob25AZG9lLmNvbSIsInBhc3N3b3JkIjoiamhvbmRvZSIsImlhdCI6MTY5MzExNTE4OSwiZXhwIjoxNjkzMjAxNTg5fQ.nccylr252ez8Bk_rv1f5Dw5M2xQVZ0JSzDW-i4n1oFc
+
+#------------------------------ 
+# POST Requests
+#------------------------------ 
+### create product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "title": "iPhone X",
+  "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+  "price": 899,
+  "discountPercentage": 17.94,
+  "rating": 4.44,
+  "stock": 34,
+  "brand": "Apple",
+  "category": "smartphones",
+  "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+}
+
+### create product, omit optional fields (rating, discountPercentage)
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "title": "Samsung Universe 9",
+  "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+  "price": 1249,
+  "stock": 36,
+  "brand": "Samsung",
+  "category": "smartphones",
+  "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
+}
+
+### create product without title (expected error)
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "description": "OPPO F19 is officially announced on April 2021.",
+  "price": 280,
+  "discountPercentage": 17.91,
+  "rating": 4.3,
+  "stock": 123,
+  "brand": "OPPO",
+  "category": "smartphones",
+  "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+}
